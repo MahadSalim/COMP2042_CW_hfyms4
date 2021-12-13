@@ -53,6 +53,15 @@ public class Wall {
     private int ballCount;
     private boolean ballLost;
 
+    /**
+     *
+     * @param drawArea Wall- this sets the area of the wall that is created
+     * @param brickCount Wall- this sets the amount of bricks
+     * @param lineCount Wall- the sets the number of lines on the wall
+     * @param brickDimensionRatio Wall- this sets the dimension ratio for the bricks
+     * @param ballPos Wall-  this gives the position of the ball
+     */
+
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
 
         this.startPoint = new Point(ballPos);
@@ -82,6 +91,16 @@ public class Wall {
 
 
     }
+
+    /**
+     *
+     * @param drawArea makeSingleTypeLevel- this sets the area where the bricks are drawn
+     * @param brickCnt makeSingleTypeLevel- this sets the amount of bricks
+     * @param lineCnt makeSingleTypeLevel- this method sets the amount of lines for the bricks
+     * @param brickSizeRatio makeSingleTypeLevel- this method sets the ratio of size for the bricks
+     * @param type makeSingleTypeLevel- this method lets know the type of brick that is used
+     * @return
+     */
 
     private Brick[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
         /*
@@ -167,6 +186,7 @@ public class Wall {
         }
         return tmp;
     }
+
 
     private void makeBall(Point2D ballPos){
         ball = new RubberBall(ballPos);

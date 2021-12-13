@@ -20,7 +20,7 @@ package test;
 import java.awt.*;
 
 /**
- *Includes the player controls
+ *Includes the  controls and functions for the player
  */
 
 public class Player {
@@ -37,6 +37,13 @@ public class Player {
     private final int min;
     private final int max;
 
+    /**
+     *
+     * @param ballPoint Player- this gets the points of the ball
+     * @param width Player- this is the width set for the panel(which the player controls)
+     * @param height Player- this is the height set for the panel(which the player controls)
+     ** @param container Player- this is the rectangle of the panel
+     */
 
     public Player(Point ballPoint,int width,int height,Rectangle container) {
         this.ballPoint = ballPoint;
@@ -47,10 +54,24 @@ public class Player {
 
     }
 
+    /**
+     *
+     * @param width makeRectangle-  this sets the width for the rectangle
+     * @param height makeRectangle- this sets the height for the rectangle
+     * @return
+     */
+
     private Rectangle makeRectangle(int width,int height){
         Point p = new Point((int)(ballPoint.getX() - (width / 2)),(int)ballPoint.getY());
         return  new Rectangle(p,new Dimension(width,height));
     }
+
+    /**
+     *
+     * @param b impact- this is used to specify the ball used in game
+     * @return impact- this returns the value of positions for the ball
+     */
+
 
     public boolean impact(Ball b){
         return playerFace.contains(b.getPosition()) && playerFace.contains(b.down) ;
@@ -77,9 +98,19 @@ public class Player {
         moveAmount = 0;
     }
 
+    /**
+     *
+     * @return getPlayerFace- this returns the face(shape/look) of the player
+     */
+
     public Shape getPlayerFace(){
         return  playerFace;
     }
+
+    /**
+     *
+     * @param p moveTo- this point p is used to specify the location of the ball
+     */
 
     public void moveTo(Point p){
         ballPoint.setLocation(p);

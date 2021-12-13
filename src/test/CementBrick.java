@@ -21,8 +21,8 @@ public class CementBrick extends Brick {
 
     /**
      *
-     * @param point specifies the position of the CementBrick
-     * @param size determines the size of the CementBrick
+     * @param point CementBrick- specifies the position of the CementBrick
+     * @param size CementBrick- determines the size of the CementBrick
      */
 
     public CementBrick(Point point, Dimension size){
@@ -31,10 +31,24 @@ public class CementBrick extends Brick {
         brickFace = super.brickFace;
     }
 
+    /**
+     *
+     * @param pos makeBrickFace- gives the value for the position for making the BrickFace
+     * @param size makeBrickFace- sets the size for the brick
+     * @return
+     */
+
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
         return new Rectangle(pos,size);
     }
+
+    /**
+     *
+     * @param point setImpact- sets the point for where the impact is
+     * @param dir setImpact- gives the direction of the impact
+     * @return
+     */
 
     @Override
     public boolean setImpact(Point2D point, int dir) {
@@ -51,7 +65,7 @@ public class CementBrick extends Brick {
 
     /**
      *
-     * @return gives back the information of the appearance of the class brick (brickFace)
+     * @return getBrick- gives back the information of the appearance of the class brick (brickFace)
      */
 
     @Override

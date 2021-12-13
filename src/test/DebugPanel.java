@@ -22,6 +22,10 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * This is method for creating the debug panel for the game that allows users to manipulate the
+ * the programs inner state
+ */
 
 public class DebugPanel extends JPanel {
 
@@ -56,16 +60,33 @@ public class DebugPanel extends JPanel {
 
     }
 
+
+
     private void initialize(){
         this.setBackground(DEF_BKG);
         this.setLayout(new GridLayout(2,2));
     }
+
+    /**
+     *
+     * @param title makeButton- this gets the title used for the button
+     * @param e makeButton- this detects when the button is interacted with
+     * @return
+     */
 
     private JButton makeButton(String title, ActionListener e){
         JButton out = new JButton(title);
         out.addActionListener(e);
         return  out;
     }
+
+    /**
+     *
+     * @param min makeSlider- this sets the minimum value for slider
+     * @param max makeSlider- this sets the maximum value for slider
+     * @param e makeSlider- this listens(detects) the changes made to slider
+     * @return
+     */
 
     private JSlider makeSlider(int min, int max, ChangeListener e){
         JSlider out = new JSlider(min,max);
@@ -75,6 +96,12 @@ public class DebugPanel extends JPanel {
         out.addChangeListener(e);
         return out;
     }
+
+    /**
+     *
+     * @param x setValues- this sets the value for the ball speed at x-axis (left/right)
+     * @param y setValues- this sets the value for the ball speed at y-axis(up/down)
+     */
 
     public void setValues(int x,int y){
         ballXSpeed.setValue(x);

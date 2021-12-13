@@ -23,6 +23,7 @@ import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 
 
+
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
 
     private static final String CONTINUE = "Continue";
@@ -57,7 +58,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     /**
      *
-     * @param owner the possessor of the game when it is being played, JFrame will include components like labels, buttons, text fields
+     * @param owner GameBoard-the possessor of the game when it is being played, JFrame will include components like labels, buttons, text fields
      * This includes the basic components for running the game, where the ball, bricks & player are initialised on the GameBoard
      */
 
@@ -111,7 +112,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     }
 
-
+    /**
+     * this method initializes the game board menu with the specified dimensions
+     */
 
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
@@ -122,6 +125,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         this.addMouseMotionListener(this);
     }
 
+    /**
+     *
+     * @param g paint- this paint the game board when initialized
+     */
 
     public void paint(Graphics g){
 
@@ -146,12 +153,23 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         Toolkit.getDefaultToolkit().sync();
     }
 
+    /**
+     *
+     * @param g2d clear- this method calls for painting the background of the game board
+     */
+
     private void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(BG_COLOR);
         g2d.fillRect(0,0,getWidth(),getHeight());
         g2d.setColor(tmp);
     }
+
+    /**
+     *
+     * @param brick drawBrick -this requests for drawing the bricks from the class brick
+     * @param g2d  drawBrick -this method is used for drawing the brick
+     */
 
     private void drawBrick(Brick brick,Graphics2D g2d){
         Color tmp = g2d.getColor();
@@ -165,6 +183,12 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         g2d.setColor(tmp);
     }
+
+    /**
+     *
+     * @param ball drawBall- this requests for drawing the bricks from the class ball
+     * @param g2d drawBall- this method is used for drawing the ball
+     */
 
     private void drawBall(Ball ball,Graphics2D g2d){
         Color tmp = g2d.getColor();
@@ -180,6 +204,12 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+    /**
+     *
+     * @param p drawPlayer- this method get the player from the class Player
+     * @param g2d drawPlayer- this method is used for drawing the player into the game board
+     */
+
     private void drawPlayer(Player p,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -192,6 +222,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         g2d.setColor(tmp);
     }
+
+    /**
+     *
+     * @param g2d drawMenu- this method draws the menu when the game board is initialized
+     */
 
     private void drawMenu(Graphics2D g2d){
         obscureGameBoard(g2d);
@@ -212,6 +247,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setComposite(tmp);
         g2d.setColor(tmpColor);
     }
+
+    /**
+     *
+     * @param g2d drawPauseMenu this method calls for drawing the pause menu when the user pauses in game
+     */
 
     private void drawPauseMenu(Graphics2D g2d){
         Font tmpFont = g2d.getFont();
@@ -267,9 +307,19 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmpColor);
     }
 
+    /**
+     *
+     * @param keyEvent keyTyped-  this method is called when a key is pressed (eg- space/enter)
+     */
+
     @Override
     public void keyTyped(KeyEvent keyEvent) {
     }
+
+    /**
+     *
+     * @param keyEvent keyPressed- this is when the key is pressed for moving left/right for player
+     */
 
     @Override
     public void keyPressed(KeyEvent keyEvent) {
@@ -300,10 +350,20 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         }
     }
 
+    /**
+     *
+     * @param keyEvent keyReleased- this method is called when a key is released after being pressed
+     */
+
     @Override
     public void keyReleased(KeyEvent keyEvent) {
         wall.player.stop();
     }
+
+    /**
+     *
+     * @param mouseEvent mouseClicked- this method is used when the mouse button is clicked (for pressing buttons etc.)
+     */
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
@@ -327,10 +387,20 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     }
 
+    /**
+     *
+     * @param mouseEvent mousePressed- this method is for when the mouse button is pressed
+     */
+
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
 
     }
+
+    /**
+     *
+     * @param mouseEvent mouseReleased- this method is used when the mouse is released
+     */
 
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {
@@ -346,6 +416,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     public void mouseExited(MouseEvent mouseEvent) {
 
     }
+
+    /**
+     *
+     * @param mouseEvent mouseDragged- when the mouse is dragged on the screen
+     */
 
     @Override
     public void mouseDragged(MouseEvent mouseEvent) {

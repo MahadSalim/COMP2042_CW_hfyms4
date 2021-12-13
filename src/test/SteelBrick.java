@@ -21,6 +21,9 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
+/**
+ * This class is for the SteelBricks that are used in game as Bricks
+ */
 
 public class SteelBrick extends Brick {
 
@@ -39,16 +42,34 @@ public class SteelBrick extends Brick {
         brickFace = super.brickFace;
     }
 
+    /**
+     *
+     * @param pos makeBrickFace- gives the value for the position for making the BrickFace
+     * @param size makeBrickFace- sets the size for the brick
+     * @return
+     */
 
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
         return new Rectangle(pos,size);
     }
 
+    /**
+     *
+     * @return getBrick()- this returns the shape and dimensions for the brick
+     */
+
     @Override
     public Shape getBrick() {
         return brickFace;
     }
+
+    /**
+     *
+     * @param point setImpact- sets the point for where the impact is
+     * @param dir setImpact- gives the direction of the impact
+     * @return
+     */
 
     public  boolean setImpact(Point2D point , int dir){
         if(!super.isBroken())

@@ -77,8 +77,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
 
     /**
-     *  @param owner this would specify to the user loading the game
-     * @param area This specifies the Dimension area (resolution) the HomeMenu would be loaded in
+     *  @param owner HomeMenu- this would specify to the user loading the game
+     * @param area HomeMenu- This specifies the Dimension area (resolution) the HomeMenu would be loaded in
      */
 
 
@@ -118,7 +118,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     /**
      *
-     * @param g this is a method where the component is asked to draw itself on the screen and further
+     * @param g paint- this is a method where the component is asked to draw itself on the screen and further
      *         sets the instructions for when the 'Start' 'Exit' button is clicked
      */
 
@@ -169,29 +169,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
-
     /**
-    private void drawContainer(Graphics2D g2d){
-        Color prev = g2d.getColor();
+     *
+     * @param g2d drawText- this feature draws the specific text onto the homeMenu
+     */
 
-        g2d.setColor(BG_COLOR);
-        g2d.fill(menuFace);
-
-        Stroke tmp = g2d.getStroke();
-
-        g2d.setStroke(borderStoke_noDashes);
-        g2d.setColor(DASH_BORDER_COLOR);
-        g2d.draw(menuFace);
-
-        g2d.setStroke(borderStoke);
-        g2d.setColor(BORDER_COLOR);
-        g2d.draw(menuFace);
-
-        g2d.setStroke(tmp);
-
-        g2d.setColor(prev);
-    }
-**/
     private void drawText(Graphics2D g2d){
 
         g2d.setColor(TEXT_COLOR);
@@ -228,6 +210,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     *
+     * @param g2d drawButton- this method draws the specified button onto the homeMenu
+     */
+
     private void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -257,7 +244,6 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         y += startButton.y + (startButton.height * 0.9);
 
 
-
         if(startClicked){
             Color tmp = g2d.getColor();
             g2d.setColor(CLICKED_BUTTON_COLOR);
@@ -278,7 +264,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
 
         /**
-         * @param set.location the location for the menuButton
+         * @param set.location drawButton- the location for the menuButton
          */
 
         menuButton.setLocation(x,y);
@@ -303,12 +289,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
             g2d.drawString(MENU_TEXT,x,y);
         }
         /**
-         * @param set.location the location for the HelpButton
+         * @param set.location drawButton- the location for the HelpButton
          */
 
 
         HelpButton.setLocation(150,210);
-
 
 
 
@@ -348,7 +333,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     /**
      *
-     * @param mouseEvent in the event that the mouse button is clicked & if it is not clicked then the
+     * @param mouseEvent mouseClicked- in the event that the mouse button is clicked & if it is not clicked then the
      *                   system prints out 'Goodbye *username*'
      */
 
@@ -393,6 +378,12 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         }
     }
 
+    /**
+     *
+     * @param mouseEvent mouseReleased- if the mouse button is released then it repaints the button
+     *                                  with a different width & height
+     */
+
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {
         if(startClicked ){
@@ -411,10 +402,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     /**
      *
-     * @param mouseEvent mouseEntered if the mouse button is clicked
-     *                   mouseExited mouse button is let go
-     *                   mouseDragged mouse is dragged
-     *
+     * @param mouseEvent mouseEntered- this method is called if the mouse button is clicked
      *
      **/
 
@@ -423,11 +411,20 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     *
+     * @param mouseEvent mouseExited- this method is called when mouse button is let go
+     */
+
     @Override
     public void mouseExited(MouseEvent mouseEvent) {
 
     }
 
+    /**
+     *
+     * @param mouseEvent mouseDragged- this method is called in the event that the mouse is dragged
+     */
 
     @Override
     public void mouseDragged(MouseEvent mouseEvent) {

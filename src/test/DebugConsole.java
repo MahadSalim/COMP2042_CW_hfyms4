@@ -26,6 +26,7 @@ import java.awt.event.WindowListener;
  * DebugConsole is a user interface that allows the user to view/manipulate internal state for debugging
  */
 
+
 public class DebugConsole extends JDialog implements WindowListener{
 
     private static final String TITLE = "Debug Console";
@@ -51,6 +52,7 @@ public class DebugConsole extends JDialog implements WindowListener{
         this.pack();
     }
 
+
     private void initialize(){
         this.setModal(true);
         this.setTitle(TITLE);
@@ -69,7 +71,7 @@ public class DebugConsole extends JDialog implements WindowListener{
 
     /**
      *
-     * @param windowEvent This is the case if the window is opened for DebugConsole
+     * @param windowEvent windowOpened- This is the case if the window is opened for DebugConsole
      */
 
     @Override
@@ -77,25 +79,50 @@ public class DebugConsole extends JDialog implements WindowListener{
 
     }
 
+    /**
+     *
+     * @param windowEvent windowClosing- this detects if the window is closed
+     */
+
     @Override
     public void windowClosing(WindowEvent windowEvent) {
         gameBoard.repaint();
     }
+
+    /**
+     *
+     * @param windowEvent windowClosed- this method is for when the window is closed
+     */
 
     @Override
     public void windowClosed(WindowEvent windowEvent) {
 
     }
 
+    /**
+     *
+     * @param windowEvent windowIconified- this methods call for when the window is reduced(made smaller)
+     */
+
     @Override
     public void windowIconified(WindowEvent windowEvent) {
 
     }
 
+    /**
+     *
+     * @param windowEvent windowDeIconified- this method is for when the window is enlarged (maximised)
+     */
+
     @Override
     public void windowDeiconified(WindowEvent windowEvent) {
 
     }
+
+    /**
+     *
+     * @param windowEvent windowActivated- this method is for when the window is in action then the ball is set at positions
+     */
 
     @Override
     public void windowActivated(WindowEvent windowEvent) {
@@ -103,6 +130,11 @@ public class DebugConsole extends JDialog implements WindowListener{
         Ball b = wall.ball;
         debugPanel.setValues(b.getSpeedX(),b.getSpeedY());
     }
+
+    /**
+     *
+     * @param windowEvent windowDeactivated - this is when the window is disconnected
+     */
 
     @Override
     public void windowDeactivated(WindowEvent windowEvent) {

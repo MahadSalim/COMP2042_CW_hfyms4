@@ -57,6 +57,8 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         
     }
 
+
+
     public void initialize(){
         this.setTitle(DEF_TITLE);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -64,6 +66,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.autoLocate();
         this.setVisible(true);
     }
+
+    /**
+     * enableGameBoard- this enables the game board
+     */
 
     public void enableGameBoard(){
         this.dispose();
@@ -76,6 +82,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     }
 
+    /**
+     * enableHowToPlay- this enables the how to play menu
+     */
+
     public void enableHowToPlay(){
         this.dispose();
         this.remove(homeMenu);
@@ -84,6 +94,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         initialize();
         this.addWindowFocusListener(this);
     }
+
+    /**
+     * enableHomeMenu- this enables the home menu
+     */
 
     public void enableHomeMenu(){
         this.dispose();
@@ -101,6 +115,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setLocation(x,y);
     }
 
+    /**
+     *
+     * @param windowEvent windowGainedFocus- this listens for when the window of game gains focus
+     */
 
     @Override
     public void windowGainedFocus(WindowEvent windowEvent) {
@@ -114,6 +132,11 @@ public class GameFrame extends JFrame implements WindowFocusListener {
          */
         gaming = true;
     }
+
+    /**
+     *
+     * @param windowEvent windowLostFocus- this listens for when the window loses focus
+     */
 
     @Override
     public void windowLostFocus(WindowEvent windowEvent) {

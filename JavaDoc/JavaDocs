@@ -1,0 +1,151 @@
+// These are all the JavaDocs that have been created for the code
+
+    /**
+     * @param center Ball- the centre position for the ball
+     * @param radiusA Ball- the radius A of the ball
+     * @param radiusB Ball-the radius B of the ball
+     * @param inner Ball- the inside color of the ball
+     * @param border Ball- the color of the border of the ball
+     *
+     * @param center makeBall- this creates the ball at the specified center
+     * @param radiusA makeBall- the radius position a of the ball when creating it
+     * @param radiusB makeBall- the radius position b of the ball
+     * @return makeBall- it returns by making the shape of the ball
+     *
+     * @param x setSpeed-the speed at which the ball moves at x-axis
+     * @param y setSpeed-the speed at which the ball moves at y-axis
+     *
+     * @param s setXSpeed- this would be the speed that the ball moves at x position(left-right)
+     * @param s setYSpeed- this indicates the speed of the ball at y-axis(up-down)
+     *
+     * @return getBorderColor- this method returns the border color of ball
+     * @return getInnerColor- this method returns inner border color of ball
+     *
+     * @return getPosition- this returns the centre position of ball
+     *
+     * @return getBallFace- this returns the face of ball(how it looks)
+     *
+     * @param p moveTo- represents the location in two-dimensional (x,y) coordinate
+     *
+     * @param width setPoints- this gives the width of the ball which is used as setting points for ball
+     * @param height setPoints- this gives the height of ball which is used to set points of location for ball
+     *
+     * @return speed getSpeedX- returns the value of speed for the x-axis
+     * @return getSpeedY- returns the value for the speed for y-axis
+     *
+     * @param crackDepth Crack- The integer defined above, defines how much a brick has cracked
+     * @param steps Crack- defines the step of stage at which broken-brick is
+     *
+     * @return GeneralPath- gives the value of the step at which the crack of the brick is
+     *
+     * @param point makeCrack- this calls for the method to paint the crack at a specific point
+     * @param direction makeCrack- this specifies the direction in which it is drawn
+     * @param start makeCrack- this sets the start location for the point
+     * @param end makeCrack- this sets the end location for point
+     *
+     * @param name Brick- gives a name to the different cracked-bricks
+     * @param pos Brick- defines the position for the brick
+     * @param size Brick- sets the size for the brick
+     * @param border Brick- defines the borders for the cracked brick
+     * @param inner Brick- the color for the inside of brick
+     * @param strength Brick- defines the strength of brick:- cracked brick = less strength
+     *
+     * @param pos makeBrickFace- gives the value for the position for making the BrickFace
+     * @param size makeBrickFace- sets the size for the brick
+     * @return makeBrickFace- in this instance gives back the value - if the brick is broken or not
+     *
+     * @param point CementBrick- specifies the position of the CementBrick
+     * @param size CementBrick- determines the size of the CementBrick
+     *
+     * @param pos makeBrickFace- gives the value for the position for making the BrickFace
+     * @param size makeBrickFace- sets the size for the brick
+     *
+     * @param point setImpact- sets the point for where the impact is
+     * @param dir setImpact- gives the direction of the impact
+     *
+     * @return getBrick- gives back the information of the appearance of the class brick (brickFace)
+     *
+     * @param point ClayBrick- determines the position of where the ClayBrick is
+     * @param size ClayBrick- determines the size of the ClayBrick
+     *
+     * @param windowEvent windowOpened- This is the case if the window is opened for DebugConsole
+     * @param windowEvent windowClosing- this detects if the window is closed
+     * @param windowEvent windowClosed- this method is for when the window is closed
+     * @param windowEvent windowIconified- this methods call for when the window is reduced(made smaller)
+     * @param windowEvent windowDeIconified- this method is for when the window is enlarged (maximised)
+     * @param windowEvent windowActivated- this method is for when the window is in action then the ball is set at positions
+     * @param windowEvent windowDeactivated - this is when the window is disconnected
+     *
+     * @param title makeButton- this gets the title used for the button
+     * @param e makeButton- this detects when the button is interacted with
+     *
+     * @param min makeSlider- this sets the minimum value for slider
+     * @param max makeSlider- this sets the maximum value for slider
+     * @param e makeSlider- this listens(detects) the changes made to slider
+     *
+     * @param x setValues- this sets the value for the ball speed at x-axis (left/right)
+     * @param y setValues- this sets the value for the ball speed at y-axis(up/down)
+     *
+     * @param owner GameBoard-the possessor of the game when it is being played, JFrame will include components like labels, buttons, text fields
+     *
+     * @param g paint- this paint the game board when initialized
+     *
+     * @param g2d clear- this method calls for painting the background of the game board
+     *
+     * @param brick drawBrick -this requests for drawing the bricks from the class brick
+     * @param g2d  drawBrick -this method is used for drawing the brick
+     *
+     * @param ball drawBall- this requests for drawing the bricks from the class ball
+     * @param g2d drawBall- this method is used for drawing the ball
+     *
+     * @param p drawPlayer- this method get the player from the class Player
+     * @param g2d drawPlayer- this method is used for drawing the player into the game board
+     *
+     * @param g2d drawMenu- this method draws the menu when the game board is initialized
+     *
+     * @param g2d drawPauseMenu- this method calls for drawing the pause menu when the user pauses in game
+     *
+     * @param keyEvent keyTyped-  this method is called when a key is pressed (eg- space/enter)
+     * @param keyEvent keyPressed- this is when the key is pressed for moving left/right for player
+     * @param keyEvent keyReleased- this method is called when a key is released after being pressed
+     *
+     * @param mouseEvent mouseClicked- this method is used when the mouse button is clicked (for pressing buttons etc.)
+     * @param mouseEvent mousePressed- this method is for when the mouse button is pressed
+     * @param mouseEvent mouseReleased- this method is used when the mouse is released
+     * @param mouseEvent mouseDragged- when the mouse is dragged on the screen
+     *
+     * @param windowEvent windowGainedFocus- this listens for when the window of game gains focus
+     * @param windowEvent windowLostFocus- this listens for when the window loses focus
+     *
+     * @param owner HomeMenu- this would specify to the user loading the game
+     * @param area HomeMenu- This specifies the Dimension area (resolution) the HomeMenu would be loaded in
+     *
+     * @param g paint- this is a method where the component is asked to draw itself on the screen and further
+     *
+     * @param g2d drawText- this feature draws the specific text onto the homeMenu
+     * @param g2d drawButton- this method draws the specified button onto the homeMenu
+     * @param set.location drawButton- the location for the menuButton
+     * @param set.location drawButton- the location for the HelpButton
+     *
+     * @param mouseEvent mouseClicked- in the event that the mouse button is clicked
+     *
+     * @param ballPoint Player- this gets the points of the ball
+     * @param width Player- this is the width set for the panel(which the player controls)
+     * @param height Player- this is the height set for the panel(which the player controls)
+     * @param container Player- this is the rectangle of the panel
+     *
+     * @param width makeRectangle-  this sets the width for the rectangle
+     * @param height makeRectangle- this sets the height for the rectangle
+     *
+     * @param b impact- this is used to specify the ball used in game
+     *
+     * @return getPlayerFace- this returns the face(shape/look) of the player
+     *
+     * @param p moveTo- this point p is used to specify the location of the ball
+     *
+     * @param drawArea Wall- this sets the area of the wall that is created
+     * @param brickCount Wall- this sets the amount of bricks
+     * @param lineCount Wall- the sets the number of lines on the wall
+     * @param brickDimensionRatio Wall- this sets the dimension ratio for the bricks
+     * @param ballPos Wall-  this gives the position of the ball
+     *//

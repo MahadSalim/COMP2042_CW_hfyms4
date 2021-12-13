@@ -20,8 +20,8 @@ public class ClayBrick extends Brick {
 
     /**
      *
-     * @param point determines the position of where the ClayBrick is
-     * @param size determines the size of the ClayBrick
+     * @param point ClayBrick- determines the position of where the ClayBrick is
+     * @param size ClayBrick- determines the size of the ClayBrick
      */
 
 
@@ -29,6 +29,12 @@ public class ClayBrick extends Brick {
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CLAY_STRENGTH);
     }
 
+    /**
+     *
+     * @param pos makeBrickFace- gives the value for the position for making the BrickFace
+     * @param size makeBrickFace- sets the size for the brick
+     * @return
+     */
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
         return new Rectangle(pos,size);

@@ -8,6 +8,9 @@ import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
+/**
+ *  This is the menu for the HowToPlay section where the user can read the instructions of the game
+ */
 
 public class HowToPlay extends JComponent implements MouseListener, MouseMotionListener {
 
@@ -48,6 +51,12 @@ public class HowToPlay extends JComponent implements MouseListener, MouseMotionL
 
     private boolean ReturnClicked;
 
+    /**
+     *
+     * @param owner HowToPlay- this gets the owner of the GameFrame
+     * @param area HowToPlay- this sets the area for the window
+     */
+
     public HowToPlay(GameFrame owner, Dimension area){
 
         this.setFocusable(true);
@@ -73,6 +82,11 @@ public class HowToPlay extends JComponent implements MouseListener, MouseMotionL
         ;
 
     }
+
+    /**
+     *
+     * @param g paint- this is used to draw the page when required
+     */
 
     public void paint(Graphics g) {drawPage((Graphics2D)g); }
 
@@ -135,6 +149,11 @@ public class HowToPlay extends JComponent implements MouseListener, MouseMotionL
 
     }
 
+    /**
+     *
+     * @param g2d drawContainer- this draws the container of the HowToPlay window
+     */
+
     private void drawContainer(Graphics2D g2d){
         Color prev = g2d.getColor();
 
@@ -156,6 +175,11 @@ public class HowToPlay extends JComponent implements MouseListener, MouseMotionL
 
     }
 
+    /**
+     *
+     * @param g2d drawText- this draws the specified text onto the window
+     */
+
     private void drawText(Graphics2D g2d) {
 
         g2d.setColor(Text_Color);
@@ -168,6 +192,12 @@ public class HowToPlay extends JComponent implements MouseListener, MouseMotionL
 
 
     }
+
+    /**
+     *
+     * @param g2d drawButton- this draws the specified button onto the window
+     */
+
     private void drawButton(Graphics2D g2d) {
 
         FontRenderContext frc = g2d.getFontRenderContext();
