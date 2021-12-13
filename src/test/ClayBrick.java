@@ -1,14 +1,15 @@
 package test;
 
 import java.awt.*;
-import java.awt.Point;
-import java.awt.geom.Point2D;
 
 
 /**
  * Created by filippo on 04/09/16.
  *
+ *
+ * ClayBrick is also an extension of the class Brick
  */
+
 public class ClayBrick extends Brick {
 
     private static final String NAME = "Clay Brick";
@@ -17,8 +18,11 @@ public class ClayBrick extends Brick {
     private static final int CLAY_STRENGTH = 1;
 
 
-
-
+    /**
+     *
+     * @param point determines the position of where the ClayBrick is
+     * @param size determines the size of the ClayBrick
+     */
 
 
     public ClayBrick(Point point, Dimension size){

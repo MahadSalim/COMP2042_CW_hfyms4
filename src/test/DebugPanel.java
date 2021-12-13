@@ -23,19 +23,18 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 
-
 public class DebugPanel extends JPanel {
 
     private static final Color DEF_BKG = Color.WHITE;
 
 
-    private JButton skipLevel;
-    private JButton resetBalls;
+    public final JButton skipLevel;
+    public final JButton resetBalls;
 
     private JSlider ballXSpeed;
     private JSlider ballYSpeed;
 
-    private Wall wall;
+    public final Wall wall;
 
     public DebugPanel(Wall wall){
 
