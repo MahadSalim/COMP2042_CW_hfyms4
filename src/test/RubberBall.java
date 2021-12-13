@@ -21,6 +21,10 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 
+/**
+ * This is the classes for the RubberBall in the game
+ */
+
 public class RubberBall extends Ball {
 
 

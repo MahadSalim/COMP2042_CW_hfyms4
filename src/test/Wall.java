@@ -21,26 +21,34 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
+/**
+ * This is the public class for the wall that is made which is made up of clay, steel or cement depending on
+ * the levels.
+ */
 
 public class Wall {
 
-    private static final int LEVELS_COUNT = 4;
+    private static final int LEVELS_COUNT = 5;
 
     private static final int CLAY = 1;
     private static final int STEEL = 2;
     private static final int CEMENT = 3;
+    private static final int TITANIUM = 4;
 
-    private Random rnd;
-    private Rectangle area;
+    private static int score;
+
+
+    private final Random rnd;
+    private final Rectangle area;
 
     Brick[] bricks;
     Ball ball;
     Player player;
 
-    private Brick[][] levels;
+    private final Brick[][] levels;
     private int level;
 
-    private Point startPoint;
+    private final Point startPoint;
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
@@ -170,6 +178,8 @@ public class Wall {
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,CEMENT);
         tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,STEEL);
         tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,CEMENT);
+        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,TITANIUM);
+
         return tmp;
     }
 
@@ -198,6 +208,7 @@ public class Wall {
             ballCount--;
             ballLost = true;
         }
+
     }
 
     private boolean impactWall(){
@@ -230,7 +241,7 @@ public class Wall {
 
     public int getBrickCount(){
         return brickCount;
-    }
+        }
 
     public int getBallCount(){
         return ballCount;
@@ -303,10 +314,14 @@ public class Wall {
             case CEMENT:
                 out = new CementBrick(point, size);
                 break;
+            case TITANIUM:
+                out = new TitaniumBrick(point, size);
+                break;
             default:
                 throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
         }
         return  out;
     }
+
 
 }

@@ -30,8 +30,8 @@ public class SteelBrick extends Brick {
     private static final int STEEL_STRENGTH = 1;
     private static final double STEEL_PROBABILITY = 0.4;
 
-    private Random rnd;
-    private Shape brickFace;
+    private final Random rnd;
+    private final Shape brickFace;
 
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
@@ -51,10 +51,10 @@ public class SteelBrick extends Brick {
     }
 
     public  boolean setImpact(Point2D point , int dir){
-        if(super.isBroken())
+        if(!super.isBroken())
             return false;
         impact();
-        return  super.isBroken();
+        return !super.isBroken();
     }
 
     public void impact(){
