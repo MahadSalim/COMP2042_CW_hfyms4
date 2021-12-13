@@ -1,7 +1,6 @@
 package test;
 
 import java.awt.*;
-import java.awt.Point;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
@@ -9,7 +8,9 @@ import java.util.Random;
 /**
  * Created by filippo on 04/09/16.
  *
+ * represents the class for the bricks that have to be destroyed by ball
  */
+
 abstract public class Brick  {
 
     public static final int MIN_CRACK = 1;
@@ -21,6 +22,8 @@ abstract public class Brick  {
     public static final int DOWN_IMPACT = 200;
     public static final int LEFT_IMPACT = 300;
     public static final int RIGHT_IMPACT = 400;
+    private String name;
+
 
 
 
@@ -38,11 +41,16 @@ abstract public class Brick  {
 
 
 
-        private GeneralPath crack;
+        private final GeneralPath crack;
 
-        private int crackDepth;
-        private int steps;
+        private final int crackDepth;
+        private final int steps;
 
+        /**
+         *
+         * @param crackDepth The integer defined above, defines how much a brick has cracked
+         * @param steps defines the step of stage at which broken-brick is
+         */
 
         public Crack(int crackDepth, int steps){
 
@@ -52,7 +60,10 @@ abstract public class Brick  {
 
         }
 
-
+        /**
+         *
+         * @return gives the value of the step at which the crack of the brick is
+         */
 
         public GeneralPath draw(){
 
@@ -159,15 +170,15 @@ abstract public class Brick  {
             Point out = new Point();
             int pos;
 
-            switch(direction){
-                case HORIZONTAL:
+            switch (direction) {
+                case HORIZONTAL -> {
                     pos = rnd.nextInt(to.x - from.x) + from.x;
-                    out.setLocation(pos,to.y);
-                    break;
-                case VERTICAL:
+                    out.setLocation(pos, to.y);
+                }
+                case VERTICAL -> {
                     pos = rnd.nextInt(to.y - from.y) + from.y;
-                    out.setLocation(to.x,pos);
-                    break;
+                    out.setLocation(to.x, pos);
+                }
             }
             return out;
         }
@@ -176,28 +187,43 @@ abstract public class Brick  {
 
     private static Random rnd;
 
-    private String name;
     Shape brickFace;
 
-    private Color border;
-    private Color inner;
+    private final Color border;
+    private final Color inner;
 
-    private int fullStrength;
+    private final int fullStrength;
     private int strength;
 
     private boolean broken;
 
+    /**
+     *
+     * @param name gives a name to the different cracked-bricks
+     * @param pos defines the position for the brick
+     * @param size sets the size for the brick
+     * @param border defines the borders for the cracked brick
+     * @param inner the color for the inside of brick
+     * @param strength defines the strength of brick:- cracked brick = less strength
+     */
 
     public Brick(String name, Point pos,Dimension size,Color border,Color inner,int strength){
+        this.name = name;
         rnd = new Random();
         broken = false;
-        this.name = name;
         brickFace = makeBrickFace(pos,size);
         this.border = border;
         this.inner = inner;
         this.fullStrength = this.strength = strength;
 
     }
+
+    /**
+     *
+     * @param pos gives the value for the position for making the BrickFace
+     * @param size sets the size for the brick
+     * @return in this instance gives back the value - if the brick is broken or not
+     */
 
     protected abstract Shape makeBrickFace(Point pos,Dimension size);
 
@@ -206,7 +232,15 @@ abstract public class Brick  {
             return false;
         impact();
         return  broken;
+
+
     }
+
+    /**
+     *
+     * @return gives back the value for the border, inside color, or if the brick is broken (return border, return inner, return broken)
+     *
+     */
 
     public abstract Shape getBrick();
 
@@ -236,8 +270,13 @@ abstract public class Brick  {
         return out;
     }
 
+    /**
+     *
+     * @return gives the value if the brick is broken or not
+     */
+
     public final boolean isBroken(){
-        return broken;
+        return !broken;
     }
 
     public void repair() {

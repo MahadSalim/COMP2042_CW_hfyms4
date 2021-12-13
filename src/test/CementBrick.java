@@ -4,18 +4,26 @@ import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 
+/**
+ * Cement brick is an extension of the class Brick
+ */
 
 public class CementBrick extends Brick {
 
 
     private static final String NAME = "Cement Brick";
-    private static final Color DEF_INNER = new Color(147, 147, 147);
-    private static final Color DEF_BORDER = new Color(217, 199, 175);
+    private static final Color DEF_INNER = new Color(135, 134, 129);
+    private static final Color DEF_BORDER = new Color(135, 134, 129);
     private static final int CEMENT_STRENGTH = 2;
 
-    private Crack crack;
+    private final Crack crack;
     private Shape brickFace;
 
+    /**
+     *
+     * @param point specifies the position of the CementBrick
+     * @param size determines the size of the CementBrick
+     */
 
     public CementBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CEMENT_STRENGTH);
@@ -30,10 +38,10 @@ public class CementBrick extends Brick {
 
     @Override
     public boolean setImpact(Point2D point, int dir) {
-        if(super.isBroken())
+        if(!super.isBroken())
             return false;
         super.impact();
-        if(!super.isBroken()){
+        if(super.isBroken()){
             crack.makeCrack(point,dir);
             updateBrick();
             return false;
@@ -41,6 +49,10 @@ public class CementBrick extends Brick {
         return true;
     }
 
+    /**
+     *
+     * @return gives back the information of the appearance of the class brick (brickFace)
+     */
 
     @Override
     public Shape getBrick() {
@@ -48,7 +60,7 @@ public class CementBrick extends Brick {
     }
 
     private void updateBrick(){
-        if(!super.isBroken()){
+        if(super.isBroken()){
             GeneralPath gp = crack.draw();
             gp.append(super.brickFace,false);
             brickFace = gp;

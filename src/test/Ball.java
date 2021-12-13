@@ -7,24 +7,34 @@ import java.awt.geom.RectangularShape;
 /**
  * Created by filippo on 04/09/16.
  *
+ * Represents the ball that is used for the game
  */
+
 abstract public class Ball {
 
     private Shape ballFace;
 
-    private Point2D center;
+    private final Point2D center;
 
     Point2D up;
     Point2D down;
     Point2D left;
     Point2D right;
 
-    private Color border;
-    private Color inner;
+    private final Color border;
+    private final Color inner;
 
     private int speedX;
     private int speedY;
 
+    /**
+     *
+     * @param center the centre position for the ball
+     * @param radiusA the radius A for the ball
+     * @param radiusB the radius B for the ball
+     * @param inner the inside color for the ball
+     * @param border the color of the border for the ball
+     */
     public Ball(Point2D center,int radiusA,int radiusB,Color inner,Color border){
         this.center = center;
 
@@ -33,8 +43,8 @@ abstract public class Ball {
         left = new Point2D.Double();
         right = new Point2D.Double();
 
-        up.setLocation(center.getX(),center.getY()-(radiusB / 2));
-        down.setLocation(center.getX(),center.getY()+(radiusB / 2));
+        up.setLocation(center.getX(),center.getY() - (radiusB / 2));
+        down.setLocation(center.getX(),center.getY() + (radiusB / 2));
 
         left.setLocation(center.getX()-(radiusA /2),center.getY());
         right.setLocation(center.getX()+(radiusA /2),center.getY());
@@ -49,7 +59,8 @@ abstract public class Ball {
 
     protected abstract Shape makeBall(Point2D center,int radiusA,int radiusB);
 
-    public void move(){
+
+        public void move(){
         RectangularShape tmp = (RectangularShape) ballFace;
         center.setLocation((center.getX() + speedX),(center.getY() + speedY));
         double w = tmp.getWidth();
@@ -61,6 +72,12 @@ abstract public class Ball {
 
         ballFace = tmp;
     }
+
+    /**
+     *
+     * @param x the speed at which the ball moves at x-axis
+     * @param y the speed at which the ball moves at y-axis
+     */
 
     public void setSpeed(int x,int y){
         speedX = x;
@@ -99,6 +116,11 @@ abstract public class Ball {
         return ballFace;
     }
 
+    /**
+     *
+     * @param p represents the location in two-dimensional (x,y) coordinate
+     */
+
     public void moveTo(Point p){
         center.setLocation(p);
 
@@ -117,6 +139,11 @@ abstract public class Ball {
         left.setLocation(center.getX()-(width / 2),center.getY());
         right.setLocation(center.getX()+(width / 2),center.getY());
     }
+
+    /**
+     *
+     * @return speed - returns the speed of x & y
+     */
 
     public int getSpeedX(){
         return speedX;
