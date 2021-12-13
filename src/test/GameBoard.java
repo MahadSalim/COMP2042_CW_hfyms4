@@ -23,7 +23,6 @@ import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 
 
-
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
 
     private static final String CONTINUE = "Continue";
@@ -41,21 +40,26 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     private Timer gameTimer;
 
-    private Wall wall;
+    private final Wall wall;
 
     private String message;
 
     private boolean showPauseMenu;
 
-    private Font menuFont;
+    private final Font menuFont;
 
     private Rectangle continueButtonRect;
     private Rectangle exitButtonRect;
     private Rectangle restartButtonRect;
     private int strLen;
 
-    private DebugConsole debugConsole;
+    private final DebugConsole debugConsole;
 
+    /**
+     *
+     * @param owner the possessor of the game when it is being played, JFrame will include components like labels, buttons, text fields
+     * This includes the basic components for running the game, where the ball, bricks & player are initialised on the GameBoard
+     */
 
     public GameBoard(JFrame owner){
         super();
@@ -131,7 +135,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         drawBall(wall.ball,g2d);
 
         for(Brick b : wall.bricks)
-            if(!b.isBroken())
+            if(b.isBroken())
                 drawBrick(b,g2d);
 
         drawPlayer(wall.player,g2d);

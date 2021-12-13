@@ -19,6 +19,9 @@ package test;
 
 import java.awt.*;
 
+/**
+ * This is an implementation for the Graphics that will be loaded for the game
+ */
 
 public class GraphicsMain {
 

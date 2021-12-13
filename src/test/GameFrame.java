@@ -19,20 +19,23 @@ package test;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
-import java.awt.event.WindowListener;
 
+/**
+ * This is an extension for the GameFrame, it includes when focus listener which detects for focus events such as when the window of game is open or not
+ */
 
 public class GameFrame extends JFrame implements WindowFocusListener {
 
     private static final String DEF_TITLE = "Brick Destroy";
 
-    private GameBoard gameBoard;
-    private HomeMenu homeMenu;
+    private final GameBoard gameBoard;
+    private final HomeMenu homeMenu;
+    private final HowToPlay howToPlay;
 
     private boolean gaming;
+    private Object HowToPlay;
 
     public GameFrame(){
         super();
@@ -45,11 +48,13 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
         homeMenu = new HomeMenu(this,new Dimension(450,300));
 
+        howToPlay = new HowToPlay(this,new Dimension(450,300));
+        
         this.add(homeMenu,BorderLayout.CENTER);
 
         this.setUndecorated(true);
 
-
+        
     }
 
     public void initialize(){
@@ -69,6 +74,24 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         /*to avoid problems with graphics focus controller is added here*/
         this.addWindowFocusListener(this);
 
+    }
+
+    public void enableHowToPlay(){
+        this.dispose();
+        this.remove(homeMenu);
+        this.add(howToPlay, BorderLayout.CENTER);
+        this.setUndecorated(false);
+        initialize();
+        this.addWindowFocusListener(this);
+    }
+
+    public void enableHomeMenu(){
+        this.dispose();
+        this.remove(howToPlay);
+        this.add(homeMenu, BorderLayout.CENTER);
+        this.setUndecorated(false);
+        initialize();
+        this.addWindowFocusListener(this);
     }
 
     private void autoLocate(){
